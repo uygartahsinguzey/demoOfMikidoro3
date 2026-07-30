@@ -8,14 +8,14 @@
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="default" name="apple-mobile-web-app-status-bar-style"/>
 <meta content="Berna" name="apple-mobile-web-app-title"/>
-<title>Berna V10</title>
+<title>Berna V11</title>
 <link href="manifest.webmanifest" rel="manifest"/>
 <link href="style.css" rel="stylesheet"/><link href="v9.css" rel="stylesheet"/><link href="v9-exact.css" rel="stylesheet"/>
-<link href="v10-room.css" rel="stylesheet"/></head>
+<link href="v10-room.css" rel="stylesheet"/><link href="v11-room-editor.css" rel="stylesheet"/></head>
 <body class="berna-v9-concept" data-current-page="todayPage">
 <div class="app-shell">
 <header aria-label="Ana menü" class="topbar">
-<button aria-label="Berna ana sayfa" class="brand" id="brandButton"><span class="brand-line">BERNA<img alt="" class="brand-heart" src="./heart-pixel.png"/></span><span class="version">v10</span></button>
+<button aria-label="Berna ana sayfa" class="brand" id="brandButton"><span class="brand-line">BERNA<img alt="" class="brand-heart" src="./heart-pixel.png"/></span><span class="version">v11</span></button>
 <nav aria-label="Sekmeler" class="nav-tabs">
 <button aria-label="Bugün" class="nav-item active" data-page="todayPage">
 <img alt="" src="./nav-home.png"/>
@@ -206,7 +206,7 @@
 </section>
 </section></div><div class="miki-panel" id="mikiInventoryPanel"><div class="card inventory-page-card">
 <div class="inventory-title-row">
-<div><h2 id="inventoryModalTitle">Oda Envanteri</h2><p>Eşyayı kullan, başka modeliyle değiştir veya odadan kaldır.</p></div>
+<div><h2 id="inventoryModalTitle">Oda Envanteri</h2><p>Eşyayı seç, serbestçe yerleştir, çevir, büyüt veya odadan kaldır.</p></div>
 <span id="inventoryOwnedCount">0 eşya</span>
 </div>
 <div class="inventory-category-tabs" id="inventoryCategoryTabs"></div>
@@ -215,14 +215,14 @@
 </div></div><div class="miki-panel" id="mikiStorePanel"><section class="card store-section" id="storeSection">
 <div class="store-heading">
 <div>
-<h2><img alt="" src="./basket.png"/> Modüler Oda Dükkanı</h2>
-<p>66 farklı eşya arasından seçim yap. Satın aldıkların envanterinde kalır.</p>
+<h2><img alt="" src="./basket.png"/> Özgür Oda Dükkanı</h2>
+<p>66 farklı eşyayı satın al; odada istediğin yere sürükleyip yerleştir.</p>
 </div>
-<span>Kendi cozy odanı kur</span>
+<span>Odan tamamen sana ait</span>
 </div>
 <div aria-label="Mağaza kategorileri" class="store-category-tabs" id="storeCategoryTabs"></div>
 <div class="shop-grid" id="shopGrid"></div>
-<div class="store-footer">Çalış, coin kazan, koleksiyonunu büyüt ve odanı istediğin zaman düzenle.</div>
+<div class="store-footer">Çalış, coin kazan, eşyalarını topla ve odanı özgürce tasarla.</div>
 </section></div>
 </section><section class="app-page" data-page="progress" id="progressPage"><div id="historyPageMount"><div class="history-page-shell">
 <div class="history-title-row">
@@ -492,5 +492,5 @@
 </div>
 <div aria-live="polite" class="toast" id="toast"></div>
 <script src="app.js"></script><script src="v9.js"></script><script src="v9-exact.js"></script>
-<script src="v10-room-data.js"></script><script src="v10-room.js"></script></body>
+<script src="v10-room-data.js"></script><script src="v10-room.js"></script><script src="v11-room-editor.js"></script></body>
 </html>

@@ -1,22 +1,14 @@
 {
-  "name": "Berna V10",
+  "name": "Berna V11",
   "short_name": "Berna",
-  "description": "Cozy pixel çalışma uygulaması: güvenilir odak sayacı, görevler, ajanda, sınavlar, hedefler, Miki, 66 parçalı modüler oda, mağaza, başarılar ve gelişmiş ilerleme.",
+  "description": "Cozy çalışma uygulaması: güvenilir odak sistemi, görevler, sınavlar, hedefler, Miki ve Avataria/Sanalika tarzı serbest oda düzenleyicisi.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f5eedf",
   "theme_color": "#315f35",
   "lang": "tr",
   "icons": [
-    {
-      "src": "./icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "./icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+    {"src":"./icon-192.png","sizes":"192x192","type":"image/png"},
+    {"src":"./icon-512.png","sizes":"512x512","type":"image/png"}
   ]
 }

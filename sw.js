@@ -1,4 +1,4 @@
-const CACHE = "berna-v10-all-features-modular-room-v1";
+const CACHE = "berna-v11-avatar-room-v1";
 const ASSETS = [
   "./",
   "./index.html",
@@ -6,11 +6,13 @@ const ASSETS = [
   "./v9.css",
   "./v9-exact.css",
   "./v10-room.css",
+  "./v11-room-editor.css",
   "./app.js",
   "./v9.js",
   "./v9-exact.js",
   "./v10-room-data.js",
   "./v10-room.js",
+  "./v11-room-editor.js",
   "./manifest.webmanifest",
   "./miki-card.png",
   "./nav-home.png",

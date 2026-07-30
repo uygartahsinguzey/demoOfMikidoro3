@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#f6efdf" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Berna" name="apple-mobile-web-app-title"/>
+<title>Berna V10</title>
+<link href="manifest.webmanifest" rel="manifest"/>
+<link href="style.css" rel="stylesheet"/><link href="v9.css" rel="stylesheet"/><link href="v9-exact.css" rel="stylesheet"/>
+<link href="v10-room.css" rel="stylesheet"/></head>
+<body class="berna-v9-concept" data-current-page="todayPage">
+<div class="app-shell">
+<header aria-label="Ana menü" class="topbar">
+<button aria-label="Berna ana sayfa" class="brand" id="brandButton"><span class="brand-line">BERNA<img alt="" class="brand-heart" src="./heart-pixel.png"/></span><span class="version">v10</span></button>
+<nav aria-label="Sekmeler" class="nav-tabs">
+<button aria-label="Bugün" class="nav-item active" data-page="todayPage">
+<img alt="" src="./nav-home.png"/>
+<span>Bugün</span>
+</button>
+<button aria-label="Odak" class="nav-item" data-page="focusPage">
+<img alt="" src="./nav-focus.png"/>
+<span>Odak</span>
+</button>
+<button aria-label="Ajanda" class="nav-item" data-page="agendaPage">
+<img alt="" src="./nav-agenda.png"/>
+<span>Ajanda</span>
+</button>
+<button aria-label="Miki" class="nav-item" data-page="mikiPage">
+<img alt="" src="./nav-miki.png"/>
+<span>Miki</span>
+</button>
+<button aria-label="İlerleme" class="nav-item" data-page="progressPage">
+<img alt="" src="./nav-progress.png"/>
+<span>İlerleme</span>
+</button>
+</nav>
+<button aria-label="Coin bakiyesi" class="coin-pill" id="coinPill">
+<img alt="" src="./coin.png"/>
+<strong id="topCoin">125</strong>
+<span>+</span>
+</button>
+</header>
+<main class="app-main"><section class="app-page active" data-page="today" id="todayPage">
+<div class="page-heading"><div class="v9-greeting-copy"><h1>Günaydın, Berna! <img alt="" class="v9-inline-sun" src="./sun.png"/></h1><p>Bugün küçük adımlarla ilerleyelim.</p></div><img alt="Miki" class="v9-header-miki" src="./miki-card.png"/></div>
+<div class="today-page-grid"><section class="card daily-missions-card"><div class="feature-card-head"><div><img alt="" src="./check-pixel.png"/><h2>Günlük Görevler</h2></div><span id="dailyMissionCount">0 / 3</span></div><p class="feature-intro">Basit adımlar. Baskı yok; bugün yapabildiğin kadar.</p><div class="daily-mission-list" id="dailyMissionList"></div></section><div id="todayPrimary"><article class="card today-card" id="taskCard">
+<div class="today-head">
+<div class="date-title">
+<img alt="" src="./sun.png"/>
+<div>
+<h1>Bugün</h1>
+<p id="todayDate">24 Temmuz 2026, Perşembe</p>
+</div>
+</div>
+<button class="miki-day-button" id="startDayButton">
+<img alt="" src="./cat-head.png"/>
+<span>Miki ile<br/>Güne Başla</span>
+</button>
+</div>
+<div class="goal-card study-goal-card" id="studyGoalCard">
+<div class="goal-card-head">
+<div class="goal-title"><img alt="" class="inline-pixel-icon" src="./xp-star.png"/> Hedeflerim</div>
+<button aria-label="Günlük ve haftalık hedefleri düzenle" id="goalSettingsButton" type="button">Düzenle</button>
+</div>
+<p class="goal-headline" id="goalHeadline">Bugünkü hedefini belirle ve küçük adımlarla ilerle.</p>
+<div aria-hidden="true" class="goal-progress-track"><span id="goalProgressBar"></span></div>
+<div class="goal-progress-meta"><span id="goalProgressText">0 / 50 dk</span><small id="goalSecondaryText">Bu hafta 0 / 300 dk</small></div>
+<img alt="" class="goal-heart pixel-heart" src="./heart-pixel.png"/>
+</div>
+<div class="exam-countdown-card" id="examCountdownCard">
+<div aria-hidden="true" class="exam-countdown-icon"><img alt="" src="./exam-pixel.png"/></div>
+<div class="exam-countdown-copy">
+<span>En Yakın Sınav</span>
+<strong id="examNameDisplay">Sınavlarını ekle</strong>
+<small id="examDateDisplay">Birden fazla sınavı hedefleriyle birlikte takip edebilirsin.</small>
+<small class="exam-progress-display" id="examProgressDisplay">Ders hedefi henüz ayarlanmadı.</small>
+</div>
+<div class="exam-countdown-time" id="examCountdownTime">
+<strong id="examDays">—</strong>
+<span id="examCountdownUnit">gün</span>
+<small id="examDailyAverage">—</small>
+</div>
+<button aria-label="Sınavları yönet" class="exam-settings-button" id="examSettingsButton" title="Sınavları yönet" type="button"><img alt="" src="./settings-pixel.png"/></button>
+</div>
+<div class="today-study-summary" id="todayStudySummary">
+<div><img alt="" class="summary-pixel-icon" src="./history-pixel.png"/><span>Çalışma Süresi</span><strong id="todayStudyMinutes">0 dk</strong></div>
+<div><img alt="" class="summary-pixel-icon" src="./tomato.png"/><span>Pomodoro</span><strong id="todayStudyPomodoros">0 oturum</strong></div>
+<div><img alt="" class="summary-pixel-icon" src="./check-pixel.png"/><span>Tamamlanan Görev</span><strong id="todayStudyTasks">0 / 0</strong></div>
+</div>
+<div class="tasks-head">
+<h2>Yapılacaklar</h2>
+<button id="addTaskButton">＋ Ekle</button>
+</div>
+<div aria-live="polite" class="task-list" id="taskList"></div>
+<div class="task-footer">
+<span><b id="taskDone">0</b> / <b id="taskTotal">4</b> tamamlandı</span>
+<strong id="taskPercent">0%</strong>
+</div>
+<div class="progress-track"><span id="taskProgress"></span></div>
+</article></div><section class="card achievement-preview-card"><div class="feature-card-head"><div><img alt="" src="./trophy-pixel.png"/><h2>Başarılar</h2></div><span id="achievementCount">0 / 7</span></div><div class="achievement-preview" id="achievementPreview"></div><button class="soft-wide-button" id="openAchievementsButton" type="button">Tüm Başarıları Gör</button></section></div>
+</section><section class="app-page" data-page="focus" id="focusPage">
+<div class="page-heading focus-page-heading"><div><h1>Odak</h1><p>Dikkatini topla, hedefe odaklan.</p></div></div>
+<div class="focus-page-layout"><div id="focusPrimary"><article class="card focus-card" id="focusCard">
+<div class="focus-title-row">
+<div class="focus-heading"><img alt="" src="./tomato.png"/><h2 id="focusModeTitle">Pomodoro</h2></div>
+<div class="focus-actions">
+<button aria-label="Çalışma geçmişi" class="icon-button history-button" id="historyButton" title="Çalışma geçmişi"><img alt="" src="./history-pixel.png"/></button>
+<button aria-label="Ortam sesleri" class="icon-button ambient-button" id="ambientButton" title="Ortam sesleri"><img alt="" src="./sound-pixel.png"/></button>
+<button aria-label="Odak ve mola ayarları" class="icon-button" id="settingsButton" title="Odak ve mola ayarları"><img alt="" src="./settings-pixel.png"/></button>
+</div>
+</div>
+<div aria-label="Çalışma modu" class="work-mode-tabs" id="workModeTabs" role="tablist">
+<button class="active" data-work-mode="pomodoro" type="button">Pomodoro</button>
+<button data-work-mode="free" type="button">Serbest Sayaç</button>
+<button data-work-mode="stopwatch" type="button">Kronometre</button>
+</div>
+<div class="focus-ring-shell"><div class="timer" id="timer">25:00</div><div class="cycle-status" id="cycleStatus">1 / 4 odak · sonraki mola kısa</div></div><div class="focus-task-picker" id="focusTaskPicker">
+<label for="focusTaskSelect">Bu oturumda ne çalışacaksın?</label>
+<select aria-label="Çalışma görevi" id="focusTaskSelect">
+<option value="">Serbest çalışma</option>
+</select>
+<small id="focusTaskPreview">Görev seçersen çalışma geçmişin ders ve görev bazında ayrılır.</small>
+</div>
+<div class="timer-button-stack">
+<button class="start-button" id="timerButton"><span id="timerIcon">▶</span><span id="timerButtonText">Başlat</span></button>
+<button class="finish-timer-button hidden" id="finishTimerButton" type="button">Çalışmayı Tamamla</button>
+<button class="cancel-timer-button hidden" id="cancelTimerButton" type="button">Oturumu Bitir</button>
+</div>
+<div class="focus-mode"><span id="timerStatusText">Odaklanma</span> <img alt="" src="./nav-focus.png"/></div>
+<button class="ambient-now" id="ambientNow" type="button">Ortam sesi kapalı</button>
+<div class="reward-box" id="rewardBox">
+<p id="rewardHeading">Bu süre tamamlandığında:</p>
+<div class="reward-values">
+<span id="rewardXp"><img alt="" src="./xp-star.png"/> +15 XP</span>
+<span id="rewardCoin"><img alt="" src="./coin.png"/> +10</span>
+</div>
+<small class="reward-tier" id="rewardTier">Standart Pomodoro · İlk tamamlanan oturuma günlük bonus</small>
+</div>
+</article></div><aside id="focusMikiSlot"><article class="card miki-card" id="mikiCard">
+<div class="miki-motion-wrap"><img alt="Gri yavru kedi Miki" class="miki-card-image" src="./miki-card.png"/><span aria-hidden="true" class="miki-zs">zZ</span></div>
+<div class="miki-card-content">
+<h2>Miki <img alt="" class="pixel-heart" src="./heart-pixel.png"/></h2>
+<h3 id="mikiStage">Yavru</h3>
+<p class="miki-trait" id="mikiTrait">Minik yol arkadaşı</p>
+<p class="miki-activity" id="mikiActivity">Çalışmaya hazır</p>
+<p>XP: <b id="mikiXp">0</b> / 100</p>
+<div class="mini-progress"><span id="mikiProgress"></span></div>
+<small>Seviye <b id="mikiLevel">1</b></small>
+</div>
+</article></aside></div>
+</section><section class="app-page" data-page="agenda" id="agendaPage">
+<div class="page-heading"><div><h1>Ajanda</h1><p>Takvim, plan ve hedef yönetimi.</p></div><button class="primary-pixel-button" id="agendaAddTaskButton" type="button"><img alt="" src="./calendar-pixel.png"/> +</button></div>
+<section aria-label="Aylık takvim" class="card v9-calendar-card"><div class="v9-calendar-head"><button aria-label="Önceki ay" id="agendaPrevMonth" type="button">‹</button><strong id="agendaMonthLabel">Ay</strong><button aria-label="Sonraki ay" id="agendaNextMonth" type="button">›</button></div><div class="v9-weekdays"><span>Pzt</span><span>Sal</span><span>Çar</span><span>Per</span><span>Cum</span><span>Cmt</span><span>Paz</span></div><div class="v9-month-grid" id="agendaMonthGrid"></div></section><section class="card agenda-card">
+<div class="agenda-toolbar"><label><span>Tarih</span><input id="agendaDate" type="date"/></label><div class="agenda-date-nav"><button id="agendaPrevDay" type="button">‹</button><button id="agendaTodayButton" type="button">Bugün</button><button id="agendaNextDay" type="button">›</button></div></div>
+<div class="agenda-summary" id="agendaSummary"></div>
+<div aria-live="polite" class="agenda-task-list" id="agendaTaskList"></div>
+</section><section class="card v9-agenda-exam" id="agendaExamSummary"><div class="v9-agenda-exam-icon"><img alt="" src="./exam-pixel.png"/></div><div class="v9-agenda-exam-copy"><span>Sınav Hedefim</span><strong id="agendaExamName">Sınav ekle</strong><small id="agendaExamMeta">Hedef belirleyerek ilerlemeni takip et.</small><i><b id="agendaExamProgressBar"></b></i></div><div class="v9-agenda-exam-percent" id="agendaExamPercent">—</div></section><section class="card v9-week-plan" id="agendaWeeklyPlan"><div><img alt="" src="./calendar-pixel.png"/><strong>Çalışma Planı</strong></div><p id="agendaWeeklyPlanText">Haftalık hedefini belirle.</p><i><b id="agendaWeeklyPlanBar"></b></i></section>
+</section><section class="app-page" data-page="miki" id="mikiPage">
+<div class="page-heading"><div><h1>Miki</h1><p>Miki'nin odası</p></div></div>
+<div aria-label="Miki sayfası bölümleri" class="miki-subtabs" id="mikiSubtabs" role="tablist"><button class="active" data-miki-panel="room" type="button"><img alt="" src="./house.png"/>Oda</button><button data-miki-panel="inventory" type="button"><img alt="" src="./task-pixel.png"/>Eşyalarım</button><button data-miki-panel="store" type="button"><img alt="" src="./basket.png"/>Dükkan</button></div>
+<div class="miki-panel active" id="mikiRoomPanel"><section class="card room-section" id="roomSection">
+<div class="section-header room-section-header">
+<h2><img alt="" src="./house.png"/> Miki'nin Odası</h2>
+<div class="room-header-actions">
+<button aria-label="Odanın gündüz veya gece görünümünü değiştir" class="room-mode-button" id="roomModeButton" type="button"><img alt="" src="./moon-pixel.png"/> Gece</button>
+<button class="inventory-button" id="openInventoryButton" type="button"><img alt="" src="./task-pixel.png"/> Envanter</button>
+<button id="goStoreButton"><img alt="" src="./basket.png"/> Mağaza</button>
+</div>
+</div>
+<div class="room-image-wrap">
+<div aria-label="Miki'nin kişiselleştirilebilir odası" class="room-canvas" data-floor-theme="floor-oak" data-wall-theme="wall-cream" id="roomCanvas" role="img">
+<img alt="Miki'nin boş odası" class="v10-room-base" src="./assets/room/room-base.jpg"/>
+<div aria-hidden="true" class="room-sunlight"></div>
+<div aria-hidden="true" class="room-seasonal" id="roomSeasonal"></div>
+<div aria-hidden="true" class="room-ambient-effect" data-ambient="off" id="roomAmbientEffect"></div>
+<div aria-hidden="true" class="v10-room-layers" id="v10RoomLayers"></div>
+<div aria-hidden="true" class="room-focus-desk" id="roomFocusDesk"><span></span></div>
+<div class="room-miki-wrap" id="roomMikiWrap">
+<img alt="Miki" class="room-miki" src="./miki-card.png"/>
+<span aria-hidden="true" class="miki-accessory" id="mikiAccessory"></span>
+<span aria-live="polite" class="room-miki-bubble" id="roomMikiBubble"></span>
+</div>
+<div aria-live="polite" class="room-status" id="roomStatus"></div>
+</div>
+</div><div aria-label="Odada kullanılan eşyalar" class="v10-equipped-strip" id="v10EquippedStrip"></div>
+<div class="stats-row" id="statsRow">
+<div class="stat-card pink"><span>Seviye</span><strong><img alt="" src="./xp-star.png"/> <b id="statLevel">1</b></strong></div>
+<div class="stat-card yellow"><span>XP</span><strong><img alt="" src="./xp-star.png"/> <b id="statXp">0</b></strong></div>
+<div class="stat-card green"><span>Coin</span><strong><img alt="" src="./coin.png"/> <b id="statCoin">125</b></strong></div>
+<div class="stat-card blue"><span>Odak Oturumu</span><strong><img alt="" src="./tomato.png"/> <b id="statPomodoro">0</b></strong></div>
+</div>
+<section aria-labelledby="streakTitle" class="gentle-streak-panel" id="streakPanel">
+<div class="streak-heading">
+<div><h3 id="streakTitle"><img alt="" src="./leaf-pixel.png"/> Esnek Çalışma Serisi</h3><p id="streakStatus">Küçük adımlar seriyi büyütür.</p></div>
+<label>Günlük eşik<select id="streakMinimumSelect"><option value="10">10 dk</option><option selected="" value="15">15 dk</option></select></label>
+</div>
+<div class="streak-metrics">
+<div><span>Şimdiki seri</span><strong id="streakCurrent">0 gün</strong></div>
+<div><span>En uzun seri</span><strong id="streakLongest">0 gün</strong></div>
+<div class="streak-today"><span>Bugün</span><strong id="streakTodayText">0 / 15 dk</strong><i><b id="streakTodayProgress"></b></i></div>
+</div>
+<div class="rest-day-row"><button id="restDayButton" type="button">Bugünü dinlenme günü yap</button><small id="restDayAvailability">Bu hafta 1 dinlenme günü hakkın var</small></div>
+</section>
+</section></div><div class="miki-panel" id="mikiInventoryPanel"><div class="card inventory-page-card">
+<div class="inventory-title-row">
+<div><h2 id="inventoryModalTitle">Oda Envanteri</h2><p>Eşyayı kullan, başka modeliyle değiştir veya odadan kaldır.</p></div>
+<span id="inventoryOwnedCount">0 eşya</span>
+</div>
+<div class="inventory-category-tabs" id="inventoryCategoryTabs"></div>
+<div class="inventory-grid" id="inventoryGrid"></div>
+<p class="inventory-note">Her eşya kendi yuvasına yerleşir. Aynı yuvada yeni seçim yaptığında eski eşya envanterinde kalır.</p>
+</div></div><div class="miki-panel" id="mikiStorePanel"><section class="card store-section" id="storeSection">
+<div class="store-heading">
+<div>
+<h2><img alt="" src="./basket.png"/> Modüler Oda Dükkanı</h2>
+<p>66 farklı eşya arasından seçim yap. Satın aldıkların envanterinde kalır.</p>
+</div>
+<span>Kendi cozy odanı kur</span>
+</div>
+<div aria-label="Mağaza kategorileri" class="store-category-tabs" id="storeCategoryTabs"></div>
+<div class="shop-grid" id="shopGrid"></div>
+<div class="store-footer">Çalış, coin kazan, koleksiyonunu büyüt ve odanı istediğin zaman düzenle.</div>
+</section></div>
+</section><section class="app-page" data-page="progress" id="progressPage"><div id="historyPageMount"><div class="history-page-shell">
+<div class="history-title-row">
+<div>
+<h2 id="historyModalTitle">İlerleme</h2>
+<p>Geçmiş, istatistik ve analiz.</p>
+</div>
+<div class="history-head-actions"><button class="history-goal-button" id="historyGoalButton" type="button"><span><img alt="" src="./xp-star.png"/></span><strong>Hedefleri Yönet</strong><small>Günlük · Haftalık · Ders</small></button><button class="history-achievement-button" id="historyAchievementsButton" type="button"><img alt="" src="./trophy-pixel.png"/><span><strong>Başarılar</strong><small>Kalıcı dönüm noktaları</small></span></button></div>
+</div>
+<div aria-label="Geçmiş görünümü" class="history-view-tabs" id="historyViewTabs" role="tablist">
+<button data-history-view="daily" type="button">Günlük</button>
+<button class="active" data-history-view="weekly" type="button">Haftalık</button>
+<button data-history-view="monthly" type="button">Aylık</button>
+<button data-history-view="yearly" type="button">Yıllık</button>
+</div>
+<div class="history-filter-row">
+<label id="historyDateControl">Tarih<input aria-label="Geçmiş tarihi" id="historyDate" type="date"/></label>
+<label class="hidden-control" id="historyYearControl">Yıl<select aria-label="Geçmiş yılı" id="historyYear"></select></label>
+<label>Ders / kategori<select id="historyCategoryFilter"><option value="">Tümü</option></select></label>
+</div>
+<div class="history-insight" id="historyInsight">Bu hafta henüz çalışma kaydı yok. Küçük bir oturumla başlayabilirsin.</div>
+<div class="history-summary history-summary-four">
+<div class="history-summary-card"><span>Çalışma</span><strong id="periodTotalMinutes">0 dk</strong></div>
+<div class="history-summary-card"><span>Odak oturumu</span><strong id="periodPomodoros">0</strong></div>
+<div class="history-summary-card"><span>Aktif gün</span><strong id="periodActiveDays">0</strong></div>
+<div class="history-summary-card"><span>Çalışma serisi</span><strong id="currentStreak">0 gün</strong></div>
+</div>
+<div class="history-metrics-grid">
+<div class="history-metric"><span>En çok çalışılan ders</span><strong id="topStudyCategory">—</strong></div>
+<div class="history-metric"><span>8 haftalık ortalama</span><strong id="weeklyAverage">0 dk</strong></div>
+<div class="history-metric"><span>En verimli saat</span><strong id="productiveHour">—</strong></div>
+<div class="history-metric"><span>Görev tamamlama</span><strong id="taskCompletionRate">0%</strong></div>
+<div class="history-metric"><span>Hedefe ulaşma</span><strong id="goalAchievementRate">0%</strong></div>
+<div class="history-metric"><span>Önceki haftaya göre</span><strong id="weekComparison">0 dk</strong></div>
+</div>
+<section class="history-visual-section">
+<div class="history-visual-head"><h3 id="historyVisualTitle">Bu Hafta</h3><span id="historyVisualLegend">Günlere göre dakika</span></div>
+<div class="history-visual" id="historyVisual"></div>
+</section>
+<section aria-labelledby="studyBreakdownTitle" class="study-breakdown-section">
+<div class="study-breakdown-head"><h3 id="studyBreakdownTitle">Ders ve Görev Dağılımı</h3><span id="studyBreakdownPeriod">Seçili dönem</span></div>
+<div class="study-breakdown" id="studyBreakdown"></div>
+</section>
+<section aria-labelledby="specificDayTitle" class="specific-day-section history-daily-detail" id="historyDailyDetail">
+<div class="specific-day-head"><div><h3 id="specificDayTitle">Seçili Gün</h3><p>O güne ait çalışmalar ve yapılacaklar.</p></div></div>
+<div aria-live="polite" class="specific-day-detail" id="specificDayDetail"></div>
+</section>
+<section class="abandoned-section">
+<div class="abandoned-head"><h3>Eksik ve Yarım Bırakılan Oturumlar</h3><span id="abandonedCount">0 kayıt</span></div>
+<div class="abandoned-list" id="abandonedSessions"></div>
+</section>
+<div class="history-list-heading" id="historyListHeading">Dönem Kayıtları</div>
+<div aria-live="polite" class="history-days" id="historyDays"></div>
+</div></div></section></main>
+</div>
+<div aria-labelledby="taskModalTitle" aria-modal="true" class="modal-backdrop hidden" id="taskModal" role="dialog">
+<div class="modal-card task-editor-modal">
+<button class="modal-close" data-close="taskModal">×</button>
+<h2 id="taskModalTitle">Yeni görev ekle</h2>
+<input id="editingTaskId" type="hidden"/>
+<div class="task-form-grid">
+<label class="task-form-wide">Görev adı
+          <input id="newTaskTitle" maxlength="60" placeholder="Örn. Klinik psikoloji notlarını çalış"/>
+</label>
+<label>Ders / kategori
+          <input id="newTaskCategory" list="categorySuggestions" maxlength="28" placeholder="Örn. Klinik Psikoloji"/>
+<datalist id="categorySuggestions"></datalist>
+</label>
+<label>Tarih
+          <input id="newTaskDate" type="date"/>
+</label>
+<label>Tahmini süre
+          <select id="newTaskMinutes">
+<option value="15">15 dk</option><option selected="" value="25">25 dk</option>
+<option value="45">45 dk</option><option value="50">50 dk</option>
+<option value="60">60 dk</option><option value="90">90 dk</option>
+</select>
+</label>
+<label>Tahmini Pomodoro
+          <input id="newTaskPomodoros" max="20" min="1" step="1" type="number" value="1"/>
+</label>
+<label>Öncelik
+          <select id="newTaskPriority">
+<option value="low">Düşük</option>
+<option selected="" value="normal">Normal</option>
+<option value="high">Yüksek</option>
+</select>
+</label>
+<label>Tekrarlama
+          <select id="newTaskRecurrence">
+<option value="none">Tekrarlama yok</option>
+<option value="daily">Her gün</option>
+<option value="weekdays">Hafta içi</option>
+<option value="weekly">Her hafta aynı gün</option>
+</select>
+</label>
+</div>
+<label class="check-line carry-check"><input checked="" id="newTaskCarryOver" type="checkbox"/> Tamamlanmazsa ertesi güne aktar</label>
+<button class="modal-primary" id="saveTaskButton">Görevi Kaydet</button>
+</div>
+</div>
+<div aria-labelledby="moveTaskModalTitle" aria-modal="true" class="modal-backdrop hidden" id="moveTaskModal" role="dialog">
+<div class="modal-card compact-modal-card">
+<button class="modal-close" data-close="moveTaskModal">×</button>
+<h2 id="moveTaskModalTitle">Görevi Başka Güne Taşı</h2>
+<input id="movingTaskId" type="hidden"/>
+<p class="modal-note" id="movingTaskName"></p>
+<label>Yeni tarih<input id="moveTaskDate" type="date"/></label>
+<button class="modal-primary" id="confirmMoveTaskButton" type="button">Görevi Taşı</button>
+</div>
+</div>
+<div aria-labelledby="settingsModalTitle" aria-modal="true" class="modal-backdrop hidden" id="settingsModal" role="dialog">
+<div class="modal-card">
+<button class="modal-close" data-close="settingsModal">×</button>
+<h2 id="settingsModalTitle">Odak ve Mola Ayarları</h2>
+<label>Odak / serbest sayaç süresi
+        <input aria-describedby="focusMinutesHelp" id="focusMinutes" inputmode="numeric" max="180" min="1" step="1" type="number" value="25"/>
+</label>
+<small class="field-help" id="focusMinutesHelp">Pomodoro ve serbest sayaçta 1–180 dakika arasında kullanılır.</small>
+<div aria-label="Hazır süreler" class="quick-minutes">
+<button data-minutes="15" type="button">15 dk</button>
+<button data-minutes="25" type="button">25 dk</button>
+<button data-minutes="45" type="button">45 dk</button>
+<button data-minutes="60" type="button">60 dk</button>
+</div>
+<div class="break-settings-panel">
+<label class="check-line break-master"><input checked="" id="breaksEnabled" type="checkbox"/> Pomodoro modunda molaları kullan</label>
+<div class="break-settings-grid" id="breakSettingsGrid">
+<label>Kısa mola<input id="shortBreakMinutes" max="60" min="1" step="1" type="number" value="5"/><span>dk</span></label>
+<label>Uzun mola<input id="longBreakMinutes" max="90" min="1" step="1" type="number" value="15"/><span>dk</span></label>
+<label>Uzun mola sıklığı<input id="longBreakEvery" max="10" min="2" step="1" type="number" value="4"/><span>odak</span></label>
+</div>
+<label class="check-line"><input id="autoStartBreaks" type="checkbox"/> Mola süresini otomatik başlat</label>
+<label class="check-line"><input id="autoStartFocus" type="checkbox"/> Mola bitince odağı otomatik başlat</label>
+<small class="field-help">Mola süresinde XP veya coin verilmez. Molaları kapatırsan Pomodoro yalnızca odak sayacı olarak çalışır.</small>
+</div>
+<label class="check-line"><input checked="" id="soundEnabled" type="checkbox"/> Oturum veya mola bitince ses çal</label>
+<button class="data-settings-link" id="openBackupButton" type="button"><span>◫</span><span>Veri ve Yedekleme</span><small>Dışa aktar, geri yükle, otomatik yedekleri gör</small></button>
+<button class="modal-primary" id="saveSettingsButton">Kaydet</button>
+</div>
+</div>
+<div aria-labelledby="examModalTitle" aria-modal="true" class="modal-backdrop hidden" id="examModal" role="dialog">
+<div class="modal-card exam-modal-card multi-exam-modal-card">
+<button class="modal-close" data-close="examModal">×</button>
+<div class="exam-manager-title">
+<div><h2 id="examModalTitle">Sınavlarım</h2><p class="exam-modal-intro">Sınavlarını, derslerini ve çalışma hedeflerini tek yerde takip et.</p></div>
+<span id="examCountBadge">0 sınav</span>
+</div>
+<div class="exam-manager-layout">
+<section class="exam-form-panel">
+<input id="editingExamId" type="hidden"/>
+<h3 id="examFormTitle">Yeni sınav ekle</h3>
+<label>Sınav adı<input id="examNameInput" maxlength="50" placeholder="Örn. Klinik Psikoloji Finali"/></label>
+<label>Ders / kategori<input id="examSubjectInput" list="categorySuggestions" maxlength="28" placeholder="Örn. Klinik Psikoloji"/></label>
+<div class="exam-form-grid">
+<label>Sınav tarihi<input id="examDateInput" type="date"/></label>
+<label>Renk<input id="examColorInput" type="color" value="#f36b7f"/></label>
+</div>
+<label>Toplam çalışma hedefi<div class="input-with-unit"><input id="examTargetMinutesInput" max="50000" min="0" step="25" type="number" value="600"/><span>dk</span></div></label>
+<small class="field-help">Hedef ilerlemesi, bu ders/kategoriye bağlı çalışma oturumlarından hesaplanır.</small>
+<div class="exam-modal-actions">
+<button class="modal-secondary" id="clearExamButton" type="button">Yeni Sınav</button>
+<button class="modal-primary" id="saveExamButton" type="button">Sınavı Kaydet</button>
+</div>
+</section>
+<section class="exam-list-panel">
+<div class="exam-list-heading"><h3>Kayıtlı sınavlar</h3><span>En yakını ana ekranda görünür</span></div>
+<div aria-live="polite" class="exam-list" id="examList"></div>
+</section>
+</div>
+</div>
+</div>
+<div aria-labelledby="goalModalTitle" aria-modal="true" class="modal-backdrop hidden" id="goalModal" role="dialog">
+<div class="modal-card goal-modal-card">
+<button class="modal-close" data-close="goalModal">×</button>
+<div class="goal-manager-title">
+<div>
+<h2 id="goalModalTitle">Günlük ve Haftalık Hedefler</h2>
+<p>Yalnızca sana anlamlı gelen hedefleri aç. Tamamlandığında Miki kutlar ve küçük bir ödül verir.</p>
+</div>
+<span><img alt="" src="./xp-star.png"/> Dengeli ilerleme</span>
+</div>
+<div class="goal-manager-grid">
+<label class="goal-option-card" for="dailyMinutesGoalEnabled">
+<div class="goal-option-head">
+<span class="goal-option-icon"><img alt="" src="./history-pixel.png"/></span>
+<div><strong>Günlük çalışma</strong><small>Pomodoro, serbest sayaç ve kronometre süreleri</small></div>
+<input checked="" id="dailyMinutesGoalEnabled" type="checkbox"/>
+</div>
+<div class="goal-value-row"><input id="dailyGoalMinutes" max="600" min="10" step="5" type="number" value="50"/><span>dk / gün</span></div>
+<div class="goal-live-progress"><i id="dailyMinutesGoalBar"></i><span id="dailyMinutesGoalStatus">0 / 50 dk</span></div>
+<em>Ödül: +5 XP · +3 coin</em>
+</label>
+<label class="goal-option-card" for="dailyPomodoroGoalEnabled">
+<div class="goal-option-head">
+<span class="goal-option-icon"><img alt="" src="./tomato.png"/></span>
+<div><strong>Günlük Pomodoro</strong><small>Yalnızca tamamlanan Pomodoro modu oturumları</small></div>
+<input checked="" id="dailyPomodoroGoalEnabled" type="checkbox"/>
+</div>
+<div class="goal-value-row"><input id="dailyPomodoroGoalTarget" max="20" min="1" step="1" type="number" value="2"/><span>Pomodoro / gün</span></div>
+<div class="goal-live-progress"><i id="dailyPomodoroGoalBar"></i><span id="dailyPomodoroGoalStatus">0 / 2 Pomodoro</span></div>
+<em>Ödül: +3 XP · +2 coin</em>
+</label>
+<label class="goal-option-card" for="weeklyMinutesGoalEnabled">
+<div class="goal-option-head">
+<span class="goal-option-icon"><img alt="" src="./calendar-pixel.png"/></span>
+<div><strong>Haftalık çalışma</strong><small>Pazartesi–Pazar toplam tamamlanmış odak süresi</small></div>
+<input checked="" id="weeklyMinutesGoalEnabled" type="checkbox"/>
+</div>
+<div class="goal-value-row"><input id="weeklyMinutesGoalTarget" max="5000" min="30" step="25" type="number" value="300"/><span>dk / hafta</span></div>
+<div class="goal-live-progress"><i id="weeklyMinutesGoalBar"></i><span id="weeklyMinutesGoalStatus">0 / 300 dk</span></div>
+<em>Ödül: +12 XP · +8 coin</em>
+</label>
+<label class="goal-option-card" for="subjectWeeklyGoalEnabled">
+<div class="goal-option-head">
+<span class="goal-option-icon"><img alt="" src="./task-pixel.png"/></span>
+<div><strong>Derse özel haftalık hedef</strong><small>Seçilen derse bağlı tamamlanmış oturumlar</small></div>
+<input id="subjectWeeklyGoalEnabled" type="checkbox"/>
+</div>
+<div class="subject-goal-fields">
+<input id="subjectGoalCategory" list="categorySuggestions" maxlength="28" placeholder="Örn. Klinik Psikoloji"/>
+<div class="goal-value-row"><input id="subjectWeeklyGoalTarget" max="5000" min="30" step="25" type="number" value="200"/><span>dk / hafta</span></div>
+</div>
+<div class="goal-live-progress"><i id="subjectWeeklyGoalBar"></i><span id="subjectWeeklyGoalStatus">Ders seçilmedi</span></div>
+<em>Ödül: +10 XP · +6 coin</em>
+</label>
+</div>
+<div class="goal-modal-note" id="goalModalNote">Hedef ödülleri her gün veya hafta yalnızca bir kez verilir. Yarım bırakılan oturumlar ödüllü hedef ilerlemesine dahil edilmez.</div>
+<button class="modal-primary" id="saveStudyGoalsButton" type="button">Hedefleri Kaydet</button>
+</div>
+</div>
+<div aria-labelledby="achievementsModalTitle" aria-modal="true" class="modal-backdrop hidden" id="achievementsModal" role="dialog">
+<div class="modal-card achievements-modal-card"><button class="modal-close" data-close="achievementsModal">×</button><div class="achievement-modal-head"><div><h2 id="achievementsModalTitle">Başarılar</h2><p>Çalışma yolculuğundaki kalıcı dönüm noktaları.</p></div><img alt="" src="./trophy-pixel.png"/></div><div class="achievement-summary-line" id="achievementSummaryLine">0 / 7 başarı açıldı</div><div class="achievements-grid" id="achievementsGrid"></div></div>
+</div><div aria-labelledby="backupModalTitle" aria-modal="true" class="modal-backdrop hidden" id="backupModal" role="dialog">
+<div class="modal-card backup-modal-card">
+<button class="modal-close" data-close="backupModal">×</button>
+<div class="backup-title-row">
+<div>
+<h2 id="backupModalTitle">Veri ve Yedekleme</h2>
+<p>Görevlerini, geçmişini, coinlerini, odanı ve sınavını tek dosyada koru.</p>
+</div>
+<span class="data-version-badge" id="dataVersionBadge">Veri v4</span>
+</div>
+<div class="backup-actions-grid">
+<button class="backup-action export" id="exportDataButton" type="button"><strong>↓ Dışa Aktar</strong><span>İndirilebilir JSON yedeği oluştur</span></button>
+<label class="backup-action import" for="importDataInput"><strong>↑ Geri Yükle</strong><span>Bir Berna yedek dosyası seç</span></label>
+<input accept="application/json,.json" class="visually-hidden" id="importDataInput" type="file"/>
+<button class="backup-action local" id="createBackupButton" type="button"><strong>◫ Yerel Yedek Al</strong><span>Tarayıcı içinde anlık kopya oluştur</span></button>
+</div>
+<div class="backup-status" id="backupStatus">Otomatik yedekler değişiklik olduğunda en fazla 5 dakikada bir alınır.</div>
+<div class="local-backup-heading"><h3>Yerel Yedekler</h3><span>Son 10 kopya</span></div>
+<div aria-live="polite" class="local-backup-list" id="localBackupList"></div>
+<p class="backup-warning">Tarayıcı verileri tamamen silinirse yerel yedekler de silinebilir. Dışa aktarılan dosyayı telefonunda veya bulut sürücünde sakla.</p>
+</div>
+</div>
+<div aria-labelledby="ambientModalTitle" aria-modal="true" class="modal-backdrop hidden" id="ambientModal" role="dialog">
+<div class="modal-card ambient-modal-card">
+<button class="modal-close" data-close="ambientModal">×</button>
+<div class="ambient-title-row"><div><h2 id="ambientModalTitle">Ortam Sesleri</h2><p>Odanın atmosferini seç. Sesler varsayılan olarak kapalı başlar.</p></div><span>♫</span></div>
+<div class="ambient-sound-grid" id="ambientSoundGrid"></div>
+<div class="ambient-controls">
+<button class="modal-primary" id="ambientToggleButton" type="button">▶ Oynat</button>
+<label>Ses düzeyi <input id="ambientVolume" max="100" min="0" step="1" type="range" value="35"/><strong id="ambientVolumeValue">%35</strong></label>
+</div>
+<p class="ambient-note">Yağmur ve gece sesleri odada hafif görsel atmosfer oluşturur. Telefon ve tarayıcı kısıtlamaları nedeniyle sayfa yeniden açıldığında sesi sen başlatırsın.</p>
+</div>
+</div>
+<div aria-live="polite" class="toast" id="toast"></div>
+<script src="app.js"></script><script src="v9.js"></script><script src="v9-exact.js"></script>
+<script src="v10-room-data.js"></script><script src="v10-room.js"></script></body>
+</html>

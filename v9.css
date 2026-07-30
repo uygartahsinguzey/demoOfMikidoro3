@@ -1,0 +1,474 @@
+/* Berna V9 – reference concept UI */
+:root{
+  --v9-bg:#f5eedf;
+  --v9-paper:#fffaf0;
+  --v9-card:#fffaf1;
+  --v9-line:#ddd0b8;
+  --v9-ink:#242218;
+  --v9-muted:#716a5d;
+  --v9-green:#315f35;
+  --v9-green-2:#4f7d4f;
+  --v9-green-3:#8aa77c;
+  --v9-green-soft:#e9f0df;
+  --v9-gold:#c89b4a;
+  --v9-cream:#f7e9c8;
+  --v9-shadow:0 5px 18px rgba(71,57,35,.09);
+  --v9-radius:11px;
+}
+
+html{background:#e9dfcd;}
+body.berna-v9-concept{
+  margin:0;
+  min-height:100vh;
+  color:var(--v9-ink);
+  background:
+    radial-gradient(circle at 20% 5%,rgba(255,255,255,.55),transparent 25%),
+    radial-gradient(circle at 85% 12%,rgba(92,120,72,.08),transparent 22%),
+    #e9dfcd;
+  font-family:"Courier New",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-weight:700;
+}
+body.berna-v9-concept *{scrollbar-width:thin;scrollbar-color:#b7aa91 transparent;}
+body.berna-v9-concept button,
+body.berna-v9-concept input,
+body.berna-v9-concept select{font:inherit;}
+
+body.berna-v9-concept .app-shell{
+  position:relative;
+  width:min(100%,430px);
+  min-height:100vh;
+  margin:0 auto;
+  overflow-x:hidden;
+  background:
+    linear-gradient(rgba(255,255,255,.16),rgba(255,255,255,.16)),
+    repeating-linear-gradient(0deg,transparent 0 3px,rgba(96,74,40,.014) 3px 4px),
+    var(--v9-bg);
+  border:0;
+  box-shadow:0 0 0 1px rgba(62,49,31,.08),0 16px 55px rgba(55,43,28,.22);
+}
+
+/* Bottom navigation */
+body.berna-v9-concept .topbar{
+  position:fixed;
+  z-index:120;
+  left:50%;
+  right:auto;
+  top:auto;
+  bottom:0;
+  transform:translateX(-50%);
+  width:min(100%,430px);
+  height:72px;
+  display:block;
+  border:0;
+  border-top:1px solid #d8cbb4;
+  background:rgba(255,250,239,.97);
+  box-shadow:0 -4px 14px rgba(62,50,32,.08);
+  backdrop-filter:blur(10px);
+  padding-bottom:max(2px,env(safe-area-inset-bottom));
+}
+body.berna-v9-concept .brand,
+body.berna-v9-concept .coin-pill{display:none!important;}
+body.berna-v9-concept .nav-tabs{height:100%;display:grid;grid-template-columns:repeat(5,1fr);}
+body.berna-v9-concept .nav-item{
+  min-width:0;
+  padding:7px 2px 5px;
+  gap:2px;
+  color:#655e50;
+  background:transparent;
+  border:0;
+  font-size:9px;
+  line-height:1;
+  font-weight:800;
+}
+body.berna-v9-concept .nav-item img{
+  width:25px;
+  height:25px;
+  object-fit:contain;
+  image-rendering:pixelated;
+  filter:saturate(.35) sepia(.2) brightness(.72);
+}
+body.berna-v9-concept .nav-item.active{color:var(--v9-green);}
+body.berna-v9-concept .nav-item.active img{filter:hue-rotate(55deg) saturate(.75) brightness(.72);transform:translateY(-1px);}
+body.berna-v9-concept .nav-item.active::after{
+  left:20px;right:20px;bottom:2px;height:3px;border-radius:4px;background:var(--v9-green);
+}
+
+body.berna-v9-concept .app-main{padding:15px 14px 96px;}
+body.berna-v9-concept .app-page{min-height:calc(100vh - 112px);}
+body.berna-v9-concept .card{
+  border:1px solid var(--v9-line);
+  border-radius:var(--v9-radius);
+  background:rgba(255,250,241,.92);
+  box-shadow:0 2px 7px rgba(67,51,29,.055);
+}
+body.berna-v9-concept h1,
+body.berna-v9-concept h2,
+body.berna-v9-concept h3{color:var(--v9-ink);letter-spacing:-.4px;}
+
+/* Shared screen header */
+body.berna-v9-concept .page-heading{
+  min-height:55px;
+  margin:0 0 10px;
+  padding:2px 2px 7px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid rgba(205,191,165,.58);
+}
+body.berna-v9-concept .page-heading h1{font-size:20px;line-height:1.12;margin:0;}
+body.berna-v9-concept .page-heading p{margin:4px 0 0;font-size:8px;line-height:1.35;color:var(--v9-muted);}
+body.berna-v9-concept .page-heading .page-kicker{display:none;}
+body.berna-v9-concept .page-data-button,
+body.berna-v9-concept .primary-pixel-button{
+  width:37px;height:37px;min-height:37px;padding:0;border:1px solid #d9c8aa;border-radius:8px;background:#fff7e5;color:var(--v9-green);font-size:16px;
+}
+body.berna-v9-concept .page-data-button{display:none;}
+body.berna-v9-concept .primary-pixel-button img{width:21px;height:21px;}
+body.berna-v9-concept .v9-greeting-copy h1{display:flex;align-items:center;gap:4px;font-size:17px;}
+body.berna-v9-concept .v9-inline-sun{width:18px;height:18px;image-rendering:pixelated;}
+body.berna-v9-concept .v9-header-miki{width:49px;height:49px;object-fit:contain;image-rendering:pixelated;transform:translateY(4px);}
+
+/* TODAY */
+body.berna-v9-concept #todayPage .today-page-grid{display:flex;flex-direction:column;gap:10px;}
+body.berna-v9-concept #todayPage .daily-missions-card{order:1;padding:10px;}
+body.berna-v9-concept #todayPage #todayPrimary{order:2;display:block;}
+body.berna-v9-concept #todayPage .achievement-preview-card{order:3;padding:10px;}
+body.berna-v9-concept #todayPage .today-card{
+  display:flex;flex-direction:column;gap:10px;
+  min-height:0;padding:0;border:0;background:transparent;box-shadow:none;
+}
+body.berna-v9-concept #todayPage .today-head,
+body.berna-v9-concept #todayPage .study-goal-card,
+body.berna-v9-concept #todayPage .tasks-head,
+body.berna-v9-concept #todayPage #taskList,
+body.berna-v9-concept #todayPage .task-footer,
+body.berna-v9-concept #todayPage > * .progress-track{display:none!important;}
+body.berna-v9-concept .feature-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;}
+body.berna-v9-concept .feature-card-head>div{display:flex;align-items:center;gap:6px;}
+body.berna-v9-concept .feature-card-head img{width:20px;height:20px;image-rendering:pixelated;}
+body.berna-v9-concept .feature-card-head h2{font-size:12px;}
+body.berna-v9-concept .feature-card-head>span{font-size:8px;color:var(--v9-muted);}
+body.berna-v9-concept .feature-intro{display:none;}
+body.berna-v9-concept .daily-mission-list{display:grid;gap:6px;}
+body.berna-v9-concept .daily-mission{
+  min-height:61px;
+  display:grid;
+  grid-template-columns:40px 1fr 18px;
+  align-items:center;
+  gap:7px;
+  padding:7px 8px;
+  border:1px solid #ded2be;
+  border-radius:8px;
+  background:#fffdf7;
+}
+body.berna-v9-concept .daily-mission>img{width:35px;height:35px;object-fit:contain;image-rendering:pixelated;}
+body.berna-v9-concept .daily-mission>div{min-width:0;display:grid;gap:4px;}
+body.berna-v9-concept .daily-mission strong{font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+body.berna-v9-concept .daily-mission span{font-size:7px;color:#6d6659;}
+body.berna-v9-concept .daily-mission i{display:block;height:5px;background:#e7dfce;border-radius:99px;overflow:hidden;}
+body.berna-v9-concept .daily-mission i b{display:block;height:100%;background:var(--v9-green);border-radius:inherit;}
+body.berna-v9-concept .daily-mission small{font-size:0;width:17px;height:17px;border:1px solid #cabda7;border-radius:4px;background:#fff;}
+body.berna-v9-concept .daily-mission.complete small{background:var(--v9-green);border-color:var(--v9-green);position:relative;}
+body.berna-v9-concept .daily-mission.complete small::after{content:"✓";position:absolute;color:#fff;font-size:12px;left:3px;top:0;}
+
+body.berna-v9-concept .exam-countdown-card{
+  position:relative;
+  min-height:91px;
+  margin:0;
+  padding:11px 50px 11px 11px;
+  display:grid;
+  grid-template-columns:42px 1fr;
+  gap:8px;
+  align-items:center;
+  border:1px solid var(--v9-line);
+  border-radius:10px;
+  background:#fffaf0;
+}
+body.berna-v9-concept .exam-countdown-card::before{content:"Sınav Hedefim";position:absolute;left:10px;top:8px;font-size:9px;color:#4b463c;}
+body.berna-v9-concept .exam-countdown-icon{margin-top:16px;width:39px;height:39px;display:grid;place-items:center;background:#f0e5ce;border-radius:8px;}
+body.berna-v9-concept .exam-countdown-icon img{width:32px;height:32px;image-rendering:pixelated;}
+body.berna-v9-concept .exam-countdown-copy{margin-top:16px;min-width:0;display:grid;gap:3px;}
+body.berna-v9-concept .exam-countdown-copy>span{display:none;}
+body.berna-v9-concept .exam-countdown-copy strong{font-size:10px;}
+body.berna-v9-concept .exam-countdown-copy small{font-size:7px;color:var(--v9-muted);line-height:1.25;}
+body.berna-v9-concept .exam-progress-display{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+body.berna-v9-concept .exam-countdown-time{position:absolute;right:9px;top:30px;width:39px;text-align:center;}
+body.berna-v9-concept .exam-countdown-time strong{font-size:15px;color:var(--v9-green);}
+body.berna-v9-concept .exam-countdown-time span{display:block;font-size:6px;line-height:1.1;}
+body.berna-v9-concept .exam-countdown-time small{font-size:6px;color:var(--v9-muted);}
+body.berna-v9-concept .exam-settings-button{display:none;}
+
+body.berna-v9-concept .today-study-summary{
+  display:grid!important;grid-template-columns:repeat(3,1fr);gap:6px;margin:0;
+}
+body.berna-v9-concept .today-study-summary>div{
+  min-height:77px;padding:8px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;border:1px solid var(--v9-line);border-radius:9px;background:#fffaf0;
+}
+body.berna-v9-concept .summary-pixel-icon{width:27px;height:27px;object-fit:contain;image-rendering:pixelated;}
+body.berna-v9-concept .today-study-summary span{font-size:6px;color:#71695c;}
+body.berna-v9-concept .today-study-summary strong{font-size:10px;color:#2c281f;}
+body.berna-v9-concept .achievement-preview-card .soft-wide-button{margin-top:7px;width:100%;min-height:31px;border:0;background:transparent;color:var(--v9-green);font-size:8px;justify-content:flex-end;}
+body.berna-v9-concept .achievement-preview{display:grid!important;grid-template-columns:repeat(3,1fr);gap:6px;}
+body.berna-v9-concept .achievement-mini{
+  min-height:74px;padding:7px 4px;display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;border:1px solid #ded2be;border-radius:8px;background:#fffdf7;
+}
+body.berna-v9-concept .achievement-mini img{width:27px!important;height:27px!important;object-fit:contain;image-rendering:pixelated;}
+body.berna-v9-concept .achievement-mini span{font-size:6.5px;line-height:1.2;color:#363128;}
+body.berna-v9-concept .achievement-mini.locked{opacity:.46;filter:grayscale(.7);}
+body.berna-v9-concept .achievement-mini.unlocked{background:#f5f6e9;border-color:#b9c4a7;}
+
+/* FOCUS */
+body.berna-v9-concept #focusPage>.page-heading{justify-content:center;text-align:center;border:0;margin-bottom:2px;}
+body.berna-v9-concept #focusPage>.page-heading h1{font-size:17px;}
+body.berna-v9-concept #focusPage>.page-heading h1::before,
+body.berna-v9-concept #focusPage>.page-heading h1::after{content:"◆";font-size:7px;color:#6d8a51;margin:0 7px;vertical-align:middle;}
+body.berna-v9-concept .focus-page-layout{display:flex;flex-direction:column;gap:10px;}
+body.berna-v9-concept #focusPrimary{order:1;}
+body.berna-v9-concept #focusMikiSlot{order:2;}
+body.berna-v9-concept .focus-card{
+  min-height:0;padding:5px 7px 0;border:0;background:transparent;box-shadow:none;position:relative;
+}
+body.berna-v9-concept .focus-title-row{position:absolute;right:6px;top:-47px;z-index:2;}
+body.berna-v9-concept .focus-heading{display:none;}
+body.berna-v9-concept .focus-actions{display:flex;gap:4px;}
+body.berna-v9-concept .focus-actions .icon-button{width:29px;height:29px;border:1px solid #ddcfb6;border-radius:7px;background:#fff8e8;display:grid;place-items:center;padding:0;}
+body.berna-v9-concept .focus-actions .icon-button img{width:18px;height:18px;}
+body.berna-v9-concept .work-mode-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin:1px 0 12px;padding:3px;border:1px solid #ddcfb8;border-radius:9px;background:#efe6d4;}
+body.berna-v9-concept .work-mode-tabs button{min-height:30px;border:0;border-radius:6px;background:transparent;color:#6b6254;font-size:7px;}
+body.berna-v9-concept .work-mode-tabs button.active{background:var(--v9-green);color:#fff;box-shadow:0 2px 5px rgba(46,86,49,.18);}
+body.berna-v9-concept .focus-ring-shell{
+  position:relative;width:236px;height:236px;margin:4px auto 13px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:radial-gradient(circle,#fffaf0 0 63%,#f1e3c6 64% 67%,#406d42 68% 71%,#dfc797 72% 75%,#6d5530 76% 78%,transparent 79%);
+  filter:drop-shadow(0 3px 3px rgba(77,58,31,.08));
+}
+body.berna-v9-concept .focus-ring-shell::before{content:"";position:absolute;inset:17px;border-radius:50%;border:2px dashed rgba(51,95,53,.38);}
+body.berna-v9-concept .focus-ring-shell::after{content:"";position:absolute;top:-5px;width:35px;height:27px;background:linear-gradient(#557d3e,#34582f);border:3px solid #5a452b;border-radius:50% 50% 35% 35%;box-shadow:0 3px 0 #ad8b55;}
+body.berna-v9-concept .focus-ring-shell .timer{margin:0!important;font-size:52px;line-height:1;letter-spacing:-4px;color:#252318;z-index:1;}
+body.berna-v9-concept .focus-ring-shell .cycle-status{margin:8px 0 0!important;padding:0;background:transparent;border:0;font-size:8px;color:#504a3e;z-index:1;}
+body.berna-v9-concept .focus-ring-shell .cycle-status::after{content:" ◆";color:#4b7041;}
+body.berna-v9-concept .focus-task-picker{margin:0 0 10px;padding:9px 10px;border:1px solid var(--v9-line);border-radius:9px;background:#fffaf0;display:grid;gap:5px;}
+body.berna-v9-concept .focus-task-picker label{font-size:7px;color:#766d60;}
+body.berna-v9-concept .focus-task-picker select{height:31px;padding:0 31px 0 9px;border:0;border-radius:6px;background:#f8f1e2;color:#2c2a21;font-size:9px;}
+body.berna-v9-concept .focus-task-picker small{font-size:6px;color:#807566;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+body.berna-v9-concept .timer-button-stack{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:0;}
+body.berna-v9-concept .timer-button-stack .start-button,
+body.berna-v9-concept .timer-button-stack .finish-timer-button,
+body.berna-v9-concept .timer-button-stack .cancel-timer-button{
+  width:100%;height:43px;margin:0;border-radius:8px;font-size:11px;box-shadow:none;
+}
+body.berna-v9-concept .timer-button-stack .start-button{background:#f1dfb7;color:#29261d;border:1px solid #c8ac75;}
+body.berna-v9-concept .timer-button-stack .finish-timer-button,
+body.berna-v9-concept .timer-button-stack .cancel-timer-button{background:var(--v9-green);color:#fff;border:1px solid #244728;}
+body.berna-v9-concept .timer-button-stack .hidden{display:none!important;}
+body.berna-v9-concept .focus-mode{display:none;}
+body.berna-v9-concept .ambient-now{width:100%;min-height:57px;margin:10px 0 0;padding:8px 11px;border:1px solid var(--v9-line);border-radius:9px;background:#fffaf0;color:#353129;text-align:left;font-size:9px;}
+body.berna-v9-concept .ambient-now::before{content:"Ortam Sesi\A";white-space:pre;font-size:7px;color:#72695b;}
+body.berna-v9-concept .reward-box{display:none;}
+body.berna-v9-concept #focusMikiSlot .miki-card{
+  min-height:140px;padding:9px 12px 0;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;border:0;border-radius:9px;background:
+    linear-gradient(90deg,transparent 0 11%,rgba(255,255,255,.18) 11% 12%,transparent 12% 88%,rgba(255,255,255,.18) 88% 89%,transparent 89%),
+    linear-gradient(#f2ead8 0 63%,#9b6d3e 64% 67%,#b77d47 68% 100%);
+}
+body.berna-v9-concept #focusMikiSlot .miki-card::before{content:"";position:absolute;left:18px;bottom:27px;width:54px;height:58px;background:linear-gradient(90deg,#487542 0 20%,transparent 20% 28%,#56854b 28% 55%,transparent 55% 63%,#376b3c 63% 100%);clip-path:polygon(43% 100%,44% 48%,0 28%,42% 34%,34% 0,53% 29%,79% 6%,61% 38%,100% 34%,62% 53%,62% 100%);}
+body.berna-v9-concept #focusMikiSlot .miki-card::after{content:"";position:absolute;right:20px;bottom:31px;width:65px;height:64px;border:5px solid #7a5330;background:linear-gradient(#bcd0c9 0 50%,#27364a 50%);box-shadow:inset 0 0 0 2px #e9dcc2;}
+body.berna-v9-concept #focusMikiSlot .miki-motion-wrap{z-index:2;width:145px;height:123px;align-items:end;}
+body.berna-v9-concept #focusMikiSlot .miki-card-image{width:112px;height:112px;object-fit:contain;}
+body.berna-v9-concept #focusMikiSlot .miki-card-content{display:none;}
+
+/* AGENDA */
+body.berna-v9-concept #agendaPage>.page-heading{margin-bottom:8px;}
+body.berna-v9-concept .v9-calendar-card{padding:10px;margin-bottom:10px;}
+body.berna-v9-concept .v9-calendar-head{display:grid;grid-template-columns:30px 1fr 30px;align-items:center;margin-bottom:8px;}
+body.berna-v9-concept .v9-calendar-head button{width:28px;height:28px;border:0;background:transparent;font-size:20px;color:#39362d;cursor:pointer;}
+body.berna-v9-concept .v9-calendar-head strong{text-align:center;font-size:11px;}
+body.berna-v9-concept .v9-weekdays,
+body.berna-v9-concept .v9-month-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+body.berna-v9-concept .v9-weekdays span{text-align:center;font-size:6px;color:#70685a;padding:2px 0 5px;}
+body.berna-v9-concept .v9-month-day{position:relative;height:31px;border:0;border-radius:50%;background:transparent;color:#3c382e;font-size:8px;cursor:pointer;}
+body.berna-v9-concept .v9-month-day.outside{opacity:.38;}
+body.berna-v9-concept .v9-month-day.selected{background:var(--v9-green);color:#fff;}
+body.berna-v9-concept .v9-month-day.today:not(.selected){box-shadow:inset 0 0 0 1px var(--v9-green);}
+body.berna-v9-concept .v9-month-day.has-tasks::after{content:"";position:absolute;left:50%;bottom:2px;width:3px;height:3px;border-radius:50%;background:#d2913e;transform:translateX(-50%);}
+body.berna-v9-concept .agenda-card{padding:10px;margin-bottom:10px;}
+body.berna-v9-concept .agenda-card::before{content:"Bugünkü Planlar";display:block;margin:0 0 7px;font-size:10px;color:#302c23;}
+body.berna-v9-concept .agenda-toolbar{display:none;}
+body.berna-v9-concept .agenda-summary{padding:0 1px 7px;margin-bottom:2px;border-bottom:1px solid #e1d5c1;}
+body.berna-v9-concept .agenda-summary span{font-size:6px;}
+body.berna-v9-concept .agenda-summary strong{font-size:8px;}
+body.berna-v9-concept .agenda-summary em{display:none;}
+body.berna-v9-concept .agenda-task-list{gap:4px;}
+body.berna-v9-concept .agenda-task{min-height:39px;padding:5px 6px;border:0;border-bottom:1px solid #e4d8c6;border-left:0;border-radius:0;background:transparent;}
+body.berna-v9-concept .agenda-task:last-child{border-bottom:0;}
+body.berna-v9-concept .agenda-task>label{grid-template-columns:13px 1fr;gap:6px;}
+body.berna-v9-concept .agenda-task input{width:12px;height:12px;accent-color:var(--v9-green);}
+body.berna-v9-concept .agenda-task-main strong{font-size:8px;}
+body.berna-v9-concept .agenda-task-main small{font-size:6px;margin-top:2px;}
+body.berna-v9-concept .agenda-task-actions button{width:24px;height:24px;border:0;background:#f0e8d8;}
+body.berna-v9-concept .agenda-task-actions img{width:15px;height:15px;}
+body.berna-v9-concept .v9-agenda-exam{min-height:81px;padding:9px;display:grid;grid-template-columns:39px 1fr 45px;gap:8px;align-items:center;margin-bottom:10px;}
+body.berna-v9-concept .v9-agenda-exam-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:8px;background:#ede2cd;}
+body.berna-v9-concept .v9-agenda-exam-icon img{width:30px;height:30px;image-rendering:pixelated;}
+body.berna-v9-concept .v9-agenda-exam-copy{min-width:0;display:grid;gap:3px;}
+body.berna-v9-concept .v9-agenda-exam-copy>span{font-size:7px;color:#746b5d;}
+body.berna-v9-concept .v9-agenda-exam-copy strong{font-size:9px;}
+body.berna-v9-concept .v9-agenda-exam-copy small{font-size:6px;color:#776e60;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+body.berna-v9-concept .v9-agenda-exam-copy i,
+body.berna-v9-concept .v9-week-plan>i{display:block;height:5px;border-radius:99px;background:#e3dac8;overflow:hidden;}
+body.berna-v9-concept .v9-agenda-exam-copy i b,
+body.berna-v9-concept .v9-week-plan>i b{display:block;height:100%;background:var(--v9-green);border-radius:inherit;}
+body.berna-v9-concept .v9-agenda-exam-percent{min-height:45px;padding:7px 2px;display:grid;place-items:center;text-align:center;border:1px solid #d8cbb4;border-radius:8px;background:#f6edda;color:var(--v9-green);font-size:10px;}
+body.berna-v9-concept .v9-week-plan{padding:10px;margin-bottom:10px;}
+body.berna-v9-concept .v9-week-plan>div{display:flex;align-items:center;gap:7px;margin-bottom:6px;}
+body.berna-v9-concept .v9-week-plan img{width:22px;height:22px;image-rendering:pixelated;}
+body.berna-v9-concept .v9-week-plan strong{font-size:9px;}
+body.berna-v9-concept .v9-week-plan p{font-size:7px;color:#6f6759;margin:0 0 6px;}
+
+/* MIKI */
+body.berna-v9-concept #mikiPage>.page-heading p{font-size:8px;color:#464137;}
+body.berna-v9-concept .miki-subtabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:0 0 7px;padding:0 4px;}
+body.berna-v9-concept .miki-subtabs button{min-height:35px;border:1px solid #d9cbae;border-radius:8px 8px 0 0;background:#f3e7cf;font-size:8px;gap:4px;}
+body.berna-v9-concept .miki-subtabs button.active{background:var(--v9-green);border-color:var(--v9-green);color:#fff;}
+body.berna-v9-concept .miki-subtabs img{width:19px;height:19px;}
+body.berna-v9-concept .room-section{margin:0;padding:0 0 9px;overflow:hidden;}
+body.berna-v9-concept .room-section-header{height:40px;padding:0 8px;}
+body.berna-v9-concept .room-section-header h2{font-size:9px;}
+body.berna-v9-concept .room-section-header h2 img{width:21px;height:21px;}
+body.berna-v9-concept .room-header-actions{gap:3px;}
+body.berna-v9-concept .room-header-actions button{height:28px!important;padding:0 6px!important;font-size:6px!important;border-radius:6px!important;}
+body.berna-v9-concept .room-header-actions img{width:15px!important;height:15px!important;}
+body.berna-v9-concept .room-image-wrap{padding:0 7px;}
+body.berna-v9-concept .room-canvas{height:260px;border:2px solid #5e4128;border-radius:5px;background:#ead7b5;box-shadow:inset 0 0 0 2px #d6b98a;}
+body.berna-v9-concept .room-wall{background:repeating-linear-gradient(90deg,#e9d7b7 0 23px,#e4cdaa 23px 25px)!important;}
+body.berna-v9-concept .room-floor{background:repeating-linear-gradient(90deg,#a66f3d 0 45px,#936033 45px 48px)!important;}
+body.berna-v9-concept .room-window{width:103px!important;height:104px!important;left:28%!important;top:13px!important;}
+body.berna-v9-concept .room-bed{width:121px!important;height:91px!important;right:19px!important;bottom:33px!important;}
+body.berna-v9-concept .room-shelf{width:83px!important;height:91px!important;left:10px!important;top:36px!important;}
+body.berna-v9-concept .room-lamp{width:43px!important;height:69px!important;right:31%!important;top:21px!important;}
+body.berna-v9-concept .room-plant{width:45px!important;height:56px!important;right:36%!important;top:89px!important;}
+body.berna-v9-concept .room-rug{width:139px!important;height:61px!important;left:24%!important;bottom:15px!important;}
+body.berna-v9-concept .room-miki-wrap{width:100px!important;height:106px!important;left:38%!important;bottom:28px!important;}
+body.berna-v9-concept .room-miki{width:96px!important;height:104px!important;}
+body.berna-v9-concept #mikiPage .stats-row{grid-template-columns:repeat(4,1fr);gap:4px;padding:7px 7px 0;}
+body.berna-v9-concept #mikiPage .stat-card{min-height:45px;padding:5px 2px;border-radius:7px;}
+body.berna-v9-concept #mikiPage .stat-card span{font-size:5px;}
+body.berna-v9-concept #mikiPage .stat-card strong{font-size:8px;}
+body.berna-v9-concept #mikiPage .stat-card img{width:16px;height:16px;}
+body.berna-v9-concept #mikiPage .gentle-streak-panel{margin:7px;padding:8px;}
+body.berna-v9-concept #mikiPage .streak-heading h3{font-size:8px;}
+body.berna-v9-concept #mikiPage .streak-heading p,
+body.berna-v9-concept #mikiPage .streak-heading label,
+body.berna-v9-concept #mikiPage .rest-day-row small{font-size:6px;}
+body.berna-v9-concept #mikiPage .streak-metrics{gap:4px;}
+body.berna-v9-concept #mikiPage .streak-metrics>div{padding:5px;}
+body.berna-v9-concept #mikiPage .streak-metrics span{font-size:5px;}
+body.berna-v9-concept #mikiPage .streak-metrics strong{font-size:8px;}
+body.berna-v9-concept .inventory-page-card,
+body.berna-v9-concept .store-section{padding:10px;}
+body.berna-v9-concept .inventory-title-row h2,
+body.berna-v9-concept .store-heading h2{font-size:11px;}
+body.berna-v9-concept .inventory-title-row p,
+body.berna-v9-concept .store-heading p,
+body.berna-v9-concept .inventory-note,
+body.berna-v9-concept .store-footer{font-size:6px;line-height:1.35;}
+body.berna-v9-concept .inventory-category-tabs,
+body.berna-v9-concept .store-category-tabs{display:flex;overflow-x:auto;gap:4px;padding:7px 0;}
+body.berna-v9-concept .inventory-category-tabs button,
+body.berna-v9-concept .store-category-tabs button{flex:0 0 auto;min-height:25px;padding:0 8px;border-radius:99px;font-size:6px;}
+body.berna-v9-concept .inventory-grid,
+body.berna-v9-concept .shop-grid{grid-template-columns:repeat(3,1fr)!important;gap:6px;}
+body.berna-v9-concept .inventory-item,
+body.berna-v9-concept .shop-item{min-height:112px;padding:7px 4px;border-radius:8px;}
+body.berna-v9-concept .inventory-item img,
+body.berna-v9-concept .shop-item img{width:54px!important;height:54px!important;object-fit:contain;image-rendering:pixelated;}
+body.berna-v9-concept .inventory-item h3,
+body.berna-v9-concept .shop-item h3{font-size:7px!important;}
+body.berna-v9-concept .inventory-item button,
+body.berna-v9-concept .shop-item .price{font-size:7px!important;}
+
+/* PROGRESS */
+body.berna-v9-concept .history-page-shell{padding:0;border:0;background:transparent;box-shadow:none;}
+body.berna-v9-concept .history-title-row{min-height:54px;padding:2px 2px 7px;border-bottom:1px solid rgba(205,191,165,.58);align-items:center;}
+body.berna-v9-concept .history-title-row h2{font-size:20px;}
+body.berna-v9-concept .history-title-row p{font-size:8px;color:var(--v9-muted);margin-top:4px;}
+body.berna-v9-concept .history-head-actions{display:flex;gap:4px;}
+body.berna-v9-concept .history-goal-button,
+body.berna-v9-concept .history-achievement-button{width:33px;min-width:33px;height:33px;min-height:33px;padding:0;border:1px solid #d9c8aa;border-radius:7px;background:#fff7e5;}
+body.berna-v9-concept .history-goal-button strong,
+body.berna-v9-concept .history-goal-button small,
+body.berna-v9-concept .history-achievement-button span{display:none;}
+body.berna-v9-concept .history-goal-button img,
+body.berna-v9-concept .history-achievement-button img{width:20px;height:20px;}
+body.berna-v9-concept .history-view-tabs{margin:8px 0 6px;padding:3px;gap:3px;background:#eee4d2;border:1px solid #dccdb4;border-radius:8px;}
+body.berna-v9-concept .history-view-tabs button{min-height:29px;border:0;border-radius:6px;background:transparent;font-size:7px;}
+body.berna-v9-concept .history-view-tabs button.active{background:var(--v9-green);color:#fff;}
+body.berna-v9-concept .history-filter-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:7px;}
+body.berna-v9-concept .history-filter-row label{font-size:6px;color:#6d6558;}
+body.berna-v9-concept .history-filter-row input,
+body.berna-v9-concept .history-filter-row select{min-height:31px;padding:0 7px;border:1px solid #dacdb7;border-radius:7px;background:#fffaf0;font-size:7px;}
+body.berna-v9-concept .history-insight{margin:0 0 8px;padding:8px 9px;border:1px solid #c8d1b7;border-radius:8px;background:#f0f4e8;color:#40513a;font-size:7px;line-height:1.35;}
+body.berna-v9-concept .history-visual-section{order:1;padding:10px;margin:0 0 8px;border:1px solid var(--v9-line);border-radius:9px;background:#fffaf0;}
+body.berna-v9-concept .history-visual-head h3{font-size:9px;}
+body.berna-v9-concept .history-visual-head span{font-size:6px;}
+body.berna-v9-concept .history-visual{min-height:150px;}
+body.berna-v9-concept .history-summary-four{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:0 0 8px;}
+body.berna-v9-concept .history-summary-card{min-height:65px;padding:8px;border:1px solid var(--v9-line);border-radius:8px;background:#fffaf0;display:flex;flex-direction:column;justify-content:center;gap:5px;}
+body.berna-v9-concept .history-summary-card span{font-size:6px;color:#6e6659;}
+body.berna-v9-concept .history-summary-card strong{font-size:11px;}
+body.berna-v9-concept .history-metrics-grid{grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:8px;}
+body.berna-v9-concept .history-metric{min-height:57px;padding:8px;border:1px solid var(--v9-line);border-radius:8px;background:#fffaf0;}
+body.berna-v9-concept .history-metric span{font-size:6px;}
+body.berna-v9-concept .history-metric strong{font-size:9px;margin-top:5px;}
+body.berna-v9-concept .study-breakdown-section,
+body.berna-v9-concept .specific-day-section,
+body.berna-v9-concept .abandoned-section{padding:9px;margin:0 0 8px;border:1px solid var(--v9-line);border-radius:9px;background:#fffaf0;}
+body.berna-v9-concept .study-breakdown-head h3,
+body.berna-v9-concept .specific-day-head h3,
+body.berna-v9-concept .abandoned-head h3{font-size:8px;}
+body.berna-v9-concept .study-breakdown-head span,
+body.berna-v9-concept .specific-day-head p,
+body.berna-v9-concept .abandoned-head span{font-size:6px;}
+body.berna-v9-concept .history-list-heading{font-size:8px;margin:8px 0;}
+body.berna-v9-concept .v9-progress-streak{margin:0 0 8px;padding:10px;display:grid;grid-template-columns:1fr auto;gap:7px;align-items:center;}
+body.berna-v9-concept .v9-progress-streak h3{font-size:9px;margin:0 0 3px;}
+body.berna-v9-concept .v9-progress-streak p{font-size:6px;color:#6c6457;margin:0;}
+body.berna-v9-concept .v9-progress-streak strong{font-size:17px;color:#b06327;}
+
+/* Modal/popup polish */
+body.berna-v9-concept .modal-backdrop{background:rgba(41,36,27,.48);padding:16px;}
+body.berna-v9-concept .modal-card{width:min(100%,390px);max-height:86vh;overflow:auto;border:1px solid #ccbda4;border-radius:12px;background:#fffaf0;box-shadow:0 18px 50px rgba(31,26,18,.25);}
+body.berna-v9-concept .modal-primary{background:var(--v9-green)!important;color:#fff!important;border-color:#234a28!important;}
+body.berna-v9-concept .toast{bottom:82px;background:#2e4d30;color:#fff;border-radius:8px;font-size:8px;}
+
+/* Session-active keeps the same minimal concept */
+body.berna-v9-concept.focus-session-active #focusPage .focus-page-layout{display:flex;max-width:none;margin:0;}
+body.berna-v9-concept.focus-session-active #focusPage .focus-card{min-height:0;display:block;}
+body.berna-v9-concept.focus-session-active #focusPage .timer{font-size:54px;}
+body.berna-v9-concept.focus-session-active #focusPage .page-heading{display:flex;}
+body.berna-v9-concept.focus-session-active #focusPage .work-mode-tabs{display:none;}
+body.berna-v9-concept.focus-session-active #focusPage .focus-task-picker label,
+body.berna-v9-concept.focus-session-active #focusPage .focus-task-picker select{display:none;}
+body.berna-v9-concept.focus-session-active #focusPage .focus-task-picker{background:#fffaf0;border:1px solid var(--v9-line);padding:9px;text-align:center;}
+body.berna-v9-concept.focus-session-active #focusPage .focus-task-picker small{font-size:8px;}
+body.berna-v9-concept.focus-session-active #focusPage .ambient-now{display:block;}
+
+@media (min-width:600px){
+  body.berna-v9-concept{padding:24px 0;}
+  body.berna-v9-concept .app-shell{min-height:calc(100vh - 48px);border-radius:26px;overflow:hidden;}
+  body.berna-v9-concept .topbar{bottom:24px;border-radius:0 0 25px 25px;}
+}
+@media (max-width:430px){
+  body.berna-v9-concept .topbar{left:0;transform:none;width:100%;}
+  body.berna-v9-concept .app-shell{width:100%;box-shadow:none;}
+}
+@media (max-width:360px){
+  body.berna-v9-concept .app-main{padding-left:10px;padding-right:10px;}
+  body.berna-v9-concept .focus-ring-shell{width:210px;height:210px;}
+  body.berna-v9-concept .focus-ring-shell .timer{font-size:46px;}
+  body.berna-v9-concept .achievement-preview{grid-template-columns:repeat(2,1fr);}
+}
+/* Final V9 geometry guards */
+body.berna-v9-concept .exam-countdown-card{height:92px!important;min-height:92px!important;max-height:92px!important;overflow:hidden!important;}
+body.berna-v9-concept .exam-countdown-card::after{display:none!important;content:none!important;}
+body.berna-v9-concept .v9-agenda-exam-percent{white-space:pre-line;line-height:1.15;}
+body.berna-v9-concept .daily-missions-card:has(.daily-mission-list:empty){min-height:72px;}
+body.berna-v9-concept .achievement-preview-card:has(.achievement-preview:empty){min-height:88px;}

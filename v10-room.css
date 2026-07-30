@@ -1,0 +1,63 @@
+
+/* Berna V10 — modular room integration */
+body.berna-v9-concept .room-image-wrap{padding:0 7px!important;margin:0!important;}
+body.berna-v9-concept .room-canvas{
+  position:relative!important;width:100%!important;height:auto!important;aspect-ratio:4/3!important;
+  min-height:0!important;border:2px solid #62411f!important;border-radius:7px!important;overflow:hidden!important;
+  background:#d8c09c!important;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)!important;
+  isolation:isolate;
+}
+.v10-room-base{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:0;transition:filter .35s ease;}
+.room-canvas.is-night .v10-room-base{filter:brightness(.48) saturate(.8) hue-rotate(9deg);}
+.room-canvas.is-night::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(21,31,69,.28),rgba(10,17,43,.44));mix-blend-mode:multiply;}
+.v10-room-layers{position:absolute;inset:0;z-index:3;pointer-events:none;}
+.v10-room-item{position:absolute;left:var(--room-x);top:var(--room-y);width:var(--room-width);height:auto;z-index:var(--room-z);object-fit:contain;image-rendering:auto;filter:drop-shadow(0 3px 2px rgba(50,32,17,.18));transform-origin:center bottom;}
+.v10-room-item[data-anchor="bottom"]{transform:translate(-50%,-100%);}
+.v10-room-item[data-anchor="center"]{transform:translate(-50%,-50%);}
+.v10-room-item[data-anchor="top"]{transform:translate(-50%,0);}
+.v10-room-item.just-added{animation:v10RoomPop .62s cubic-bezier(.2,.9,.25,1.2);}
+@keyframes v10RoomPop{0%{opacity:0;scale:.72}70%{opacity:1;scale:1.06}100%{scale:1}}
+.room-sunlight{z-index:2!important;pointer-events:none!important;}
+.room-seasonal{z-index:13!important;}
+.room-ambient-effect{z-index:14!important;}
+.room-focus-desk{z-index:11!important;}
+body.berna-v9-concept .room-miki-wrap{position:absolute!important;left:50%!important;bottom:8%!important;width:10.2%!important;height:auto!important;z-index:12!important;transform:translateX(-50%);transition:left .9s cubic-bezier(.2,.75,.2,1),bottom .8s ease,width .35s ease,transform .65s ease,filter .3s ease!important;}
+body.berna-v9-concept .room-miki{display:block!important;width:100%!important;height:auto!important;object-fit:contain!important;filter:drop-shadow(0 3px 2px rgba(45,30,18,.24));}
+body.berna-v9-concept .room-miki-wrap.miki-stage-kitten{width:9.4%!important;}
+body.berna-v9-concept .room-miki-wrap.miki-stage-young{width:10.6%!important;}
+body.berna-v9-concept .room-miki-wrap.miki-stage-adult{width:11.6%!important;}
+body.berna-v9-concept .room-miki-wrap.miki-stage-mentor{width:12.4%!important;}
+body.berna-v9-concept .room-miki-wrap.miki-at-desk{left:19%!important;bottom:13%!important;z-index:12!important;}
+body.berna-v9-concept .room-miki-wrap.miki-sleeping-bed{left:83%!important;bottom:22%!important;z-index:12!important;transform:translateX(-50%) rotate(-8deg) scale(.82)!important;}
+body.berna-v9-concept .room-miki-wrap.miki-sleeping-floor{left:50%!important;bottom:7%!important;transform:translateX(-50%) rotate(-7deg) scale(.86)!important;}
+body.berna-v9-concept .room-miki-wrap.miki-playing{left:50%!important;bottom:6%!important;z-index:14!important;}
+body.berna-v9-concept .room-miki-wrap.miki-by-window{left:50%!important;bottom:38%!important;z-index:6!important;transform:translateX(-50%) scale(.82)!important;}
+body.berna-v9-concept .room-miki-wrap.miki-wandering{left:31%!important;bottom:7%!important;z-index:13!important;}
+body.berna-v9-concept .room-miki-wrap.miki-waiting{left:43%!important;bottom:7%!important;}
+body.berna-v9-concept .room-miki-wrap.miki-celebrating{left:50%!important;bottom:10%!important;}
+.v10-equipped-strip{display:flex;gap:6px;overflow-x:auto;padding:8px 7px 2px;scrollbar-width:none;}
+.v10-equipped-strip:empty{display:none;}
+.v10-equipped-chip{flex:0 0 auto;display:flex;align-items:center;gap:6px;border:1px solid #d8c7aa;background:#fffaf0;border-radius:9px;padding:5px 7px;color:#4e4b34;font:inherit;font-size:9px;font-weight:800;cursor:pointer;}
+.v10-equipped-chip img{width:27px;height:27px;object-fit:contain;}
+.v10-equipped-chip b{font-size:8px;color:#9c5b45;}
+.store-category-tabs,.inventory-category-tabs{scrollbar-width:none;}
+.shop-grid,.inventory-grid{align-items:stretch;}
+body.berna-v9-concept .shop-item,body.berna-v9-concept .inventory-item{display:grid!important;grid-template-rows:108px auto 34px!important;min-width:0!important;}
+.v10-catalog-preview{display:grid;place-items:center;min-height:100px;border-radius:8px;background:radial-gradient(circle,#fffdf7,#efe3cc);overflow:hidden;}
+.v10-catalog-preview img{max-width:93%;max-height:96px;object-fit:contain;filter:drop-shadow(0 3px 2px rgba(55,36,20,.14));}
+.v10-catalog-copy{padding:7px 1px 5px;min-width:0;}
+.v10-catalog-copy small{display:block;color:#788064;font-size:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.v10-catalog-copy strong{display:block;margin-top:2px;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.v10-catalog-copy span{display:flex;align-items:center;gap:3px;margin-top:3px;font-size:9px;color:#6f604a;}
+.v10-catalog-copy span img{width:13px;height:13px;}
+.v10-catalog-status{position:absolute;right:6px;top:6px;border-radius:999px;padding:3px 6px;background:rgba(255,250,239,.94);border:1px solid #d9c9aa;font-size:7px;color:#5d6649;z-index:2;}
+body.berna-v9-concept .shop-item,body.berna-v9-concept .inventory-item{position:relative!important;}
+body.berna-v9-concept .shop-item>button,body.berna-v9-concept .inventory-item>button{width:100%;min-height:30px;border:0;border-radius:7px;background:#315f35;color:#fff;font-size:9px;font-weight:900;cursor:pointer;}
+body.berna-v9-concept .shop-item>button[disabled],body.berna-v9-concept .inventory-item>button[disabled]{background:#d1c7b5;color:#756d62;cursor:not-allowed;}
+body.berna-v9-concept .shop-item>button.v10-remove,body.berna-v9-concept .inventory-item>button.v10-remove{background:#efe3d1;color:#805442;border:1px solid #d3bca2;}
+.v10-empty{grid-column:1/-1;padding:24px 12px;text-align:center;color:#817562;font-size:11px;}
+@media(max-width:480px){
+  body.berna-v9-concept .shop-item,body.berna-v9-concept .inventory-item{grid-template-rows:92px auto 32px!important;}
+  .v10-catalog-preview{min-height:86px}.v10-catalog-preview img{max-height:82px}
+}
+@media(prefers-reduced-motion:reduce){.v10-room-item.just-added{animation:none!important;}}
